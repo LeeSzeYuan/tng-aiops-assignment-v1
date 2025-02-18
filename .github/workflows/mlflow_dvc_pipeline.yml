@@ -30,6 +30,12 @@ jobs:
           pip install -r requirements.txt
         working-directory: ./Question2 
 
+      # Configure Git user information
+      - name: Configure Git user information
+        run: |
+          git config --global user.email "lsyuan1029@gmail.com"  # Replace with your email
+          git config --global user.name "LeeSzeYuan"  # Replace with your name
+
       # Pull the latest dataset version from DVC remote
       - name: Pull latest dataset from DVC
         run: |
