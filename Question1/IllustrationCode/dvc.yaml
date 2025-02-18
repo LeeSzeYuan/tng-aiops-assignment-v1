@@ -1,0 +1,55 @@
+stages:
+  # 1. Data Ingestion Stage
+  data_ingestion:
+    cmd: python scripts/data_ingestion.py
+    outs:
+      - data/raw_data.csv
+    deps:
+      - data/source_data.csv
+    params:
+      - params/data_ingestion.yaml
+  
+  # 2. Data Cleaning & Transformation Stage
+  data_cleaning_transformation:
+    cmd: python scripts/data_cleaning.py
+    deps:
+      - data/raw_data.csv
+      - scripts/data_cleaning.py
+    outs:
+      - data/clean_data.csv
+    params:
+      - params/data_cleaning.yaml
+  
+  # 3. Hyperparameter Tuning Stage
+  hyperparameter_tuning:
+    cmd: python scripts/hyperparameter_tuning.py
+    deps:
+      - data/clean_data.csv
+      - scripts/hyperparameter_tuning.py
+    outs:
+      - results/hyperparameters.json
+    params:
+      - params/hyperparameter_tuning.yaml
+
+  # 4. Model Testing Stage
+  model_testing:
+    cmd: python scripts/model_testing.py
+    deps:
+      - data/clean_data.csv
+      - results/hyperparameters.json
+      - scripts/model_testing.py
+    outs:
+      - results/model_performance.json
+    params:
+      - params/model_testing.yaml
+
+  # 5. Model Selection Stage
+  model_selection:
+    cmd: python scripts/model_selection.py
+    deps:
+      - results/model_performance.json
+      - scripts/model_selection.py
+    outs:
+      - results/best_model.pkl
+    params:
+      - params/model_selection.yaml

@@ -1,0 +1,11 @@
+# Prometheus Alert Rule Example
+groups:
+- name: model-alerts
+  rules:
+  - alert: ModelPerformanceDegraded
+    expr: accuracy < 0.8
+    for: 5m
+    labels:
+      severity: critical
+    annotations:
+      summary: "Model performance degraded"
