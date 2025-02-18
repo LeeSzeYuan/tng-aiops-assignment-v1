@@ -56,32 +56,32 @@ Initialize DVC in your project:
 dvc init
 ```
 
-## 7. **Add Dataset to DVC**
+## 7. **Pull Dataset from DVC**
+To pull the dataset from the DVC remote storage:
+
+```bash
+dvc pull .\data\iris_dataset.csv.dvc
+```
+
+## 8. **Add Dataset to DVC**
 Add the dataset (`iris_dataset.csv`) to DVC for version control:
 
 ```bash
 dvc add .\data\iris_dataset.csv
 ```
 
-## 8. **Set Up DVC Remote Storage**
+## 9. **Set Up DVC Remote Storage**
 Configure a remote storage for DVC to store dataset versions:
 
 ```bash
 dvc remote add -d storage ./Simulate-Remote-Storage
 ```
 
-## 9. **Push Data to DVC Remote Storage**
+## 10. **Push Data to DVC Remote Storage**
 Push the dataset to the configured DVC remote storage:
 
 ```bash
 dvc push
-```
-
-## 10. **Pull Dataset from DVC**
-To pull the dataset from the DVC remote storage:
-
-```bash
-dvc pull .\data\iris_dataset.csv.dvc
 ```
 
 ## 11. **Run Python Scripts**
