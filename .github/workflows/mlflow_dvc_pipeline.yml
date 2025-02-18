@@ -54,7 +54,7 @@ jobs:
           dvc remove data/iris_dataset.csv.dvc  # Remove the dataset from DVC tracking
           dvc add data/iris_dataset.csv  # Re-add the dataset to DVC
           git add data/iris_dataset.csv.dvc  # Stage the DVC file
-          git commit -m "Force DVC re-add dataset & Update dataset version with DVC"  
+          # git commit -m "Force DVC re-add dataset & Update dataset version with DVC"  
         working-directory: ./Question2
 
       # Push the dataset to DVC remote storage
