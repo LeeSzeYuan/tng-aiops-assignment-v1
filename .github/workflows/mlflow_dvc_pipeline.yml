@@ -51,7 +51,7 @@ jobs:
       # Track and commit dataset version with DVC
       - name: Track new dataset version with DVC
         run: |
-          dvc remove data/iris_dataset.csv  # Remove the dataset from DVC tracking
+          dvc remove data/iris_dataset.csv.dvc  # Remove the dataset from DVC tracking
           dvc add data/iris_dataset.csv  # Re-add the dataset to DVC
           dvc gc  # Clean up DVC cache (optional)
           git add data/iris_dataset.csv.dvc  # Stage the DVC file
