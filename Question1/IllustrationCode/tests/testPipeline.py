@@ -1,5 +1,3 @@
-# test_pipeline.py
-
 import pytest
 from my_ml_pipeline import process_data, train_model, deploy_model
 
@@ -17,4 +15,4 @@ def test_train_model():
 def test_deploy_model():
     model = load_trained_model()
     deploy_model(model)
-    assert model.is_deployed()  # Assuming deploy_model sets a flag
+    assert model.is_deployed()  

@@ -1,22 +1,17 @@
 import time
 import numpy as np
 
-# Simulating model performance monitoring
 def monitor_model_performance(model, X_test, y_test):
     start_time = time.time()
 
-    # Get model predictions
+    # Get model predictions, calc accuray and response timetaken
     predictions = model.predict(X_test)
-
-    # Calculate accuracy
-    accuracy = np.mean(predictions == y_test)
-    
-    # Measure response time
+    accuracy = np.mean(predictions == y_test) 
     response_time = time.time() - start_time
     
-    # Resource usage monitoring (use psutil or similar tools for more detailed monitoring)
-    cpu_usage = 50  # Placeholder value
-    memory_usage = 100  # Placeholder value
+    # Resource usage monitoring with DUMMY value
+    cpu_usage = 50  
+    memory_usage = 100  
 
     return accuracy, response_time, cpu_usage, memory_usage
 

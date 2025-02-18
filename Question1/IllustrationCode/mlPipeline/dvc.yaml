@@ -1,7 +1,7 @@
 stages:
   # 1. Data Ingestion Stage
   data_ingestion:
-    cmd: python scripts/data_ingestion.py
+    cmd: python src/data_ingestion.py
     outs:
       - data/raw_data.csv
     deps:
@@ -11,10 +11,10 @@ stages:
   
   # 2. Data Cleaning & Transformation Stage
   data_cleaning_transformation:
-    cmd: python scripts/data_cleaning.py
+    cmd: python src/data_cleaning.py
     deps:
       - data/raw_data.csv
-      - scripts/data_cleaning.py
+      - src/data_cleaning.py
     outs:
       - data/clean_data.csv
     params:
@@ -22,10 +22,10 @@ stages:
   
   # 3. Hyperparameter Tuning Stage
   hyperparameter_tuning:
-    cmd: python scripts/hyperparameter_tuning.py
+    cmd: python src/hyperparameter_tuning.py
     deps:
       - data/clean_data.csv
-      - scripts/hyperparameter_tuning.py
+      - src/hyperparameter_tuning.py
     outs:
       - results/hyperparameters.json
     params:
@@ -33,11 +33,11 @@ stages:
 
   # 4. Model Testing Stage
   model_testing:
-    cmd: python scripts/model_testing.py
+    cmd: python src/model_testing.py
     deps:
       - data/clean_data.csv
       - results/hyperparameters.json
-      - scripts/model_testing.py
+      - src/model_testing.py
     outs:
       - results/model_performance.json
     params:
@@ -45,10 +45,10 @@ stages:
 
   # 5. Model Selection Stage
   model_selection:
-    cmd: python scripts/model_selection.py
+    cmd: python src/model_selection.py
     deps:
       - results/model_performance.json
-      - scripts/model_selection.py
+      - src/model_selection.py
     outs:
       - results/best_model.pkl
     params:

@@ -64,8 +64,8 @@ jobs:
         working-directory: ./Question2
 
       # Push model and other changes to Git repository
-      - name: Push model and other changes to Git
+      - name: (simulate) Push model and other changes to Git
         run: |
           git add .  
-          git commit -m "Update model and dataset version" 
-          git push  
+          # git commit -m "Update model and dataset version" 
+          # git push  

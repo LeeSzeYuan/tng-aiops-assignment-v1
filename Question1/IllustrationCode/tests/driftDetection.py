@@ -2,19 +2,12 @@ import numpy as np
 import pandas as pd
 from scipy.stats import ks_2samp
 
-# Example training data (reference data)
-train_data = pd.DataFrame({
-    'feature1': np.random.normal(0, 1, 1000),
-    'feature2': np.random.normal(5, 2, 1000)
-})
+train_data = pd.DataFrame()
 
-# New incoming data (for testing)
-new_data = pd.DataFrame({
-    'feature1': np.random.normal(0, 1.5, 500),  # Notice the variance change
-    'feature2': np.random.normal(5, 2, 500)
-})
+# New incoming data
+new_data = pd.DataFrame()
 
-# Compare mean and variance between train and new data for each feature
+# Compare mean and variance between train and new data for each feature to check if there is any data drift
 def compare_statistics(train_data, new_data):
     for column in train_data.columns:
         train_mean = train_data[column].mean()
@@ -32,5 +25,4 @@ def compare_statistics(train_data, new_data):
             print(f"{column} appears similar.")
         print()
 
-# Run comparison
 compare_statistics(train_data, new_data)

@@ -226,12 +226,13 @@
 
 ---
 
-#### **8. Set up Trigger or Schedule for Retraining Pipeline**
+#### **8. Converting to ML Pipeline**
 
-> **Attached is a simple `dvc.yaml` file** illustrating how each stage of the pipeline communicates with each other:
-```bash
-dvc repro
-```
+- **A simple `illutrationCode/mlPipeline/dvc.yaml` file** illustrating how each stage of the pipeline communicates with each other:
+
+    ```bash
+    dvc repro
+    ```
 
 ---
 
@@ -242,7 +243,7 @@ dvc repro
   - Testing individual components such as data processing and training functions to ensure these functions work properly.
 
     ```plaintext
-    tests/test_pipeline.py
+    illustrationCode/tests/testPipeline.py
     ```
 
   - Testing model input and output verification.
@@ -274,7 +275,7 @@ dvc repro
         - Record and log **performance metrics** (e.g. accuracy, latency, etc.) of both models.
         - Perform statistical comparison.
             ```plaintext
-            tests/abtesting.py
+            illustrationCode/tests/abtesting.py
             ```
 
     2. **Canary Releases**:
@@ -313,7 +314,7 @@ dvc repro
     6. Integrate the above process into the ML model deployment pipeline.
     7. **Example**:
         ```plaintext
-        tests/driftDetection.py
+        illustrationCode/tests/driftDetection.py
         ```
 
 > **Evidently AI**: Offers monitoring dashboards to visualize data drift.
