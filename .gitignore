@@ -1,0 +1,40 @@
+# Python bytecode files
+__pycache__/
+*.pyc
+*.pyo
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Virtual environment directories
+.venv/
+.env/
+
+# DVC cache and remotes (DVC stores large files, do not track with Git)
+.dvc/
+.cache/
+*.dvc/
+
+# MLflow artifacts
+mlartifacts/
+
+# DVC config and state files (local DVC configuration)
+.dvc/config
+.dvc/.gitignore
+.dvc/tmp/
+
+# System files
+.DS_Store  # macOS
+Thumbs.db  # Windows
+
+# Log files
+*.log
+*.out
+*.err
+
+# Ignore the local model or output files
+models/
+results/
+
+# Other potential directories that you might use for temporary output
+tmp/
