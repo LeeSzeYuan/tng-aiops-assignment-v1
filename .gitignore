@@ -17,6 +17,7 @@ __pycache__/
 
 # MLflow artifacts
 mlartifacts/
+mlruns/
 
 # DVC config and state files (local DVC configuration)
 .dvc/config

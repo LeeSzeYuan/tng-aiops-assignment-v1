@@ -39,7 +39,7 @@ jobs:
       # Train the model using the Python script
       - name: Train Model and Log Metrics, Parameters & Models
         run: |
-          python src/train.py
+          python src/train-local-filesystem.py
         working-directory: ./Question2
 
       # Track and commit dataset version with DVC

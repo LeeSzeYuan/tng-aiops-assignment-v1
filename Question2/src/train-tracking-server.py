@@ -34,12 +34,12 @@ with mlflow.start_run():
 
 # Fetch the experiment ID and get run ID
 client = MlflowClient("http://127.0.0.1:5000")
-experiment_id = client.get_experiment_by_name("my-experiment-1").experiment_id
+experiment_id = client.get_experiment_by_name("experiment-1").experiment_id
 runs = client.search_runs(experiment_ids=[experiment_id], order_by=["start_time desc"], max_results=1)
 run_id = runs[0].info.run_id
 
 # Register model in Registry
 mlflow.register_model(
     model_uri=f"runs:/{run_id}/models",
-    name='iris-classifier'
+    name='iris-classifier-tracking-server'
 )
